@@ -13,7 +13,7 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <Text numberOfLines={1} onPress={handlePress}>Hello React native I am sithu!</Text>
-      
+      <Image source={require("./assets/favicon.png")} />
       <Image source={{uri: "https://picsum.photos/200/300"}}/>
       <StatusBar style="auto" />
     </SafeAreaView>
