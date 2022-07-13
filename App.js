@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native';
+//import { SafeAreaView } from 'react-native-web';
 
 // View => UIView (in IOS)
 // View => Android view 
@@ -7,13 +8,15 @@ import { StyleSheet, Text, View } from 'react-native';
 
 
 export default function App() {
-  console.log("App executed")
-  let x = 1;
+  const handlePress = () => console.log("Text pressed");
+  
   return (
-    <View style={styles.container}>
-      <Text>Hello React native I am sithu!</Text>
+    <SafeAreaView style={styles.container}>
+      <Text numberOfLines={1} onPress={handlePress}>Hello React native I am sithu!</Text>
+      
+      <Image source={{uri: "https://picsum.photos/200/300"}}/>
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -21,7 +24,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: "center",
+    alignItems:"center"
+   
   },
 });
+
