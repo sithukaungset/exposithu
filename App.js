@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native';
+import { StyleSheet, Text,landscape ,Dimensions,Platform,Alert, View, TouchableNativeFeedback,TouchableHighlight,TouchableOpacity,TouchableWithoutFeedback, SafeAreaView, Image, Button, PlatformColor } from 'react-native';
+import { useDimensions, useDeviceOrientation } from "@react-native-community/hooks";
 //import { SafeAreaView } from 'react-native-web';
 
 // View => UIView (in IOS)
@@ -8,25 +9,32 @@ import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native';
 
 
 export default function App() {
-  const handlePress = () => console.log("Text pressed");
-  
+  //const handlePress = () => console.log("Text pressed");
+  const {landscape} = useDeviceOrientation();
+  // Get the dimensions of the device
+  console.log(useDimensions ());
   return (
-    <SafeAreaView style={styles.container}>
-      <Text numberOfLines={1} onPress={handlePress}>Hello React native I am sithu!</Text>
-      <Image source={require("./assets/favicon.png")} />
-      <Image source={{uri: "https://picsum.photos/200/300"}}/>
-      <StatusBar style="auto" />
+    <SafeAreaView style={styles.container }>
+      <View style={{
+          backgroundColor: 'dodgerblue',
+          flex: 0.5,
+          width: "100%",
+          height: landscape ? '100%' : '30%',
+
+      }} ></View>
+     
     </SafeAreaView>
   );
 }
 
+const containerStyle = { backgroundColor: "teal"};
+// Regular javascript properties
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'black',
-    justifyContent: "center",
-    alignItems:"center"
+    backgroundColor: 'teal',
+    paddingTop: Platform.OS === "ios"
+    
    
-  },
+  }
 });
-
